@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: cs4040report.aux
+The style file: plain.bst
+Database file #1: myrefs.bib
+Too many commas in name 1 of "Ming Xiong, Jeff Parsons, James Edmondso n, Hieu Nguyen, Douglas C Schmidt" for entry perf-embedded
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Ming Xiong, Jeff Parsons, James Edmondso n, Hieu Nguyen, Douglas C Schmidt" for entry perf-embedded
+while executing---line 1049 of file plain.bst
+Warning--empty booktitle in splice-vs-rti
+Warning--empty booktitle in omg-perf
+Too many commas in name 1 of "Ming Xiong, Jeff Parsons, James Edmondso n, Hieu Nguyen, Douglas C Schmidt" for entry perf-embedded
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "Ming Xiong, Jeff Parsons, James Edmondso n, Hieu Nguyen, Douglas C Schmidt" for entry perf-embedded
+while executing---line 1090 of file plain.bst
+You've used 13 entries,
+            2118 wiz_defined-function locations,
+            557 strings with 5769 characters,
+and the built_in function-call counts, 3374 in all, are:
+= -- 330
+> -- 118
+< -- 2
++ -- 49
+- -- 36
+* -- 123
+:= -- 548
+add.period$ -- 50
+call.type$ -- 13
+change.case$ -- 57
+chr.to.int$ -- 0
+cite$ -- 15
+duplicate$ -- 123
+empty$ -- 324
+format.name$ -- 36
+if$ -- 751
+int.to.chr$ -- 0
+int.to.str$ -- 13
+missing$ -- 2
+newline$ -- 79
+num.names$ -- 26
+pop$ -- 127
+preamble$ -- 1
+purify$ -- 44
+quote$ -- 0
+skip$ -- 99
+stack$ -- 0
+substring$ -- 129
+swap$ -- 33
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 52
+warning$ -- 2
+while$ -- 30
+width$ -- 15
+write$ -- 145
+(There were 4 error messages)
