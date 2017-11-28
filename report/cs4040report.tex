@@ -30,7 +30,7 @@ These two open source libraries implement the same RTPS protocol specification. 
 \section{Background and related work}
 \label{sec:lit}
 
-\quad As a first thing I describe the underlying design principle behind DDS protocol. Participants (applications) using DDS can publish or subscribe to a specific "topic" of information. A single participant can publish and subscribe to multiple "topics" at the same time. The advantage of DDS against other similar protocols is that it implements rich set of Quality of Service parameters \cite{what-is-dds}. It is possible to set up different aspects of the communication. Be it persistence, reliability, redundancy, transport settings, lifespan and many others. The communication model is not difficult to understand. A topic is a name that refers to a specific piece of information we want to share. It also contains the definition of Data we want to share \cite{eprosima-dds}. See Figure 1.
+\quad As a first thing I describe the underlying design principle behind DDS protocol. Participants (applications) using DDS can publish or subscribe to a specific "topic" of information. A single participant can publish and subscribe to multiple "topics" at the same time. The advantage of DDS against other similar protocols is that it implements rich set of Quality of Service parameters \cite{what-is-dds}. It is possible to set up different aspects of the communication. Be it persistence, reliability, redundancy, transport settings, lifespan and many others. The communication model is not difficult to understand. A topic is a name that refers to a specific piece of information we want to share. It also contains the definition of Data we want to share \cite{eprosima-dds}. See Figure \ref{fig:GlobalDataSpace}.
 
 \begin{figure}[h]
 	\centering
@@ -38,7 +38,7 @@ These two open source libraries implement the same RTPS protocol specification. 
 	\caption{\label{fig:GlobalDataSpace}DDS Model: The Global Data Space \cite{eprosima-dds}}
 \end{figure}
 
-DDS provide a simple modular design that is shown in Figure 2. In these two open source implementation is DDS only a library that is linked to an application. There is no need to install any service or daemon. It is important to note that RTPS is on top of transport layer in the OSI model. Therefore, DDS can be implemented over any kind of underlying transport \cite{eprosima-dds}. DDS specification does not outline how the message should be delivered. Therefore, multiple implementation exist.
+DDS provide a simple modular design that is shown in Figure \ref{fig:DDSArch}. In these two open source implementation is DDS only a library that is linked to an application. There is no need to install any service or daemon. It is important to note that RTPS is on top of transport layer in the OSI model. Therefore, DDS can be implemented over any kind of underlying transport \cite{eprosima-dds}. DDS specification does not outline how the message should be delivered. Therefore, multiple implementation exist.
 
 \begin{figure}[h]
 	\centering
@@ -77,6 +77,34 @@ target population. What are the dependent and independent variables?
 
 Guide length: 500 words.
 
+Based on the literature review and studied materials my directional hypothesis is that eProsima Fast RTPS will have better latency performance than OpenDDS implementation regarding all tested data sizes.
+
+I will measure the latency using loopback interface from start of send to end of read. It is the same concept as if I had two separate hosts. In this scenario host1 = host2. See Figure \ref{fig:test-topology}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\textwidth]{openDDS-latency-tests}
+	\caption{\label{fig:test-topology}Latency test topology
+	\cite{openDDS-test-topology}}
+\end{figure}
+
+For this experiment I used one laptop HP EliteBook 2540p with the following parameters: 
+
+\begin{itemize}
+	\item CPU: Intel(R) Core(TM) i5 CPU M 540 locked at 1.2GHz frequency
+	\item Memory: SAMSUNG 8GB 2x4GB PC3-10600 DDR3 1333MHZ
+	\item Operating System: Fedora 27 64-bit
+	\item Swappiness: 0
+	\item Used compiler: gcc version 7.2.1 20170915 (Red Hat 7.2.1-2) (GCC)
+	\item CMake: version 3.9.6
+	\item OpenDDS version 3.12 (commit: 3057ef9dbb032bc51895f70e5c350af4b10093fa) 
+	\item eProsima Fast RTPS (commit: bec4a979c088a1f978af3dfdea2a72ae2a78b52a)
+\end{itemize}
+
+The latency will be measured with \textit{Round-Trip time} and the divided by two. This will represent latency of a message from a publisher to a subscriber. I will discard first 1000 time measurements and then collect subsequent 10 000 measurements of \textit{Round-Trip time} divided by two. This process will repeat for every message size. The sizes of a message will be 16,32,64,128,256,512,1024,2048,4096,8192 and 16384 bytes. 
+
+After all data is collected, I will calculate mean, max, min and standard deviation for every message size time measurements. Then I also perform t-tests for the same message size time measurements.
+
 \section{Results}
 \label{sec:results}
 
@@ -85,11 +113,6 @@ for each hypothesis you tested. Include graphs of results
 (e.g.\ Figure~\ref{fig:data}), tests of significance, etc. If you have
 negative results, include them. A negative results is just as
 informative and useful as a positive one, sometimes more so.
-
-\begin{figure}
-
-\caption{Some results.}\label{fig:data}
-\end{figure}
 
 Guide length: 500 words.
 

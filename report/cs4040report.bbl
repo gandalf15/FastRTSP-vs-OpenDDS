@@ -74,6 +74,12 @@ OCI.
 \newblock \url{https://github.com/objectcomputing/OpenDDS}.
 \newblock Accessed: 23 Nov, 2017.
 
+\bibitem{openDDS-test-topology}
+OpenDDS.
+\newblock Opendds - performance test descriptions - latency tests.
+\newblock \url{http://opendds.org/perf/tests/latency_tests.html}.
+\newblock Accessed: 23 Nov, 2017.
+
 \bibitem{federated-arch}
 Wikipedia.
 \newblock Federated architecture.

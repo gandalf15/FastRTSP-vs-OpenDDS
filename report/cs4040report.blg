@@ -13,45 +13,45 @@ Too many commas in name 1 of "Ming Xiong, Jeff Parsons, James Edmondso n, Hieu N
 while executing---line 1090 of file plain.bst
 Too many commas in name 1 of "Ming Xiong, Jeff Parsons, James Edmondso n, Hieu Nguyen, Douglas C Schmidt" for entry perf-embedded
 while executing---line 1090 of file plain.bst
-You've used 13 entries,
+You've used 14 entries,
             2118 wiz_defined-function locations,
-            557 strings with 5769 characters,
-and the built_in function-call counts, 3374 in all, are:
-= -- 330
-> -- 118
+            562 strings with 5927 characters,
+and the built_in function-call counts, 3587 in all, are:
+= -- 351
+> -- 125
 < -- 2
-+ -- 49
-- -- 36
-* -- 123
-:= -- 548
-add.period$ -- 50
-call.type$ -- 13
-change.case$ -- 57
++ -- 52
+- -- 38
+* -- 128
+:= -- 584
+add.period$ -- 54
+call.type$ -- 14
+change.case$ -- 61
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 123
-empty$ -- 324
-format.name$ -- 36
-if$ -- 751
+cite$ -- 16
+duplicate$ -- 130
+empty$ -- 346
+format.name$ -- 38
+if$ -- 798
 int.to.chr$ -- 0
-int.to.str$ -- 13
+int.to.str$ -- 14
 missing$ -- 2
-newline$ -- 79
-num.names$ -- 26
-pop$ -- 127
+newline$ -- 85
+num.names$ -- 28
+pop$ -- 137
 preamble$ -- 1
-purify$ -- 44
+purify$ -- 47
 quote$ -- 0
-skip$ -- 99
+skip$ -- 104
 stack$ -- 0
-substring$ -- 129
-swap$ -- 33
+substring$ -- 134
+swap$ -- 34
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 52
+type$ -- 56
 warning$ -- 2
-while$ -- 30
-width$ -- 15
-write$ -- 145
+while$ -- 32
+width$ -- 16
+write$ -- 156
 (There were 4 error messages)
