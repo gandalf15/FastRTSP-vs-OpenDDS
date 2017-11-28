@@ -55,13 +55,13 @@ At the beginning of the second paper the DDS standard is well described. The nex
 \section{Research question}
 \label{sec:rq}
 
-\quad It has been shown that DDS implementations differ in performance even though they implement the same communication standard RTPS. The research papers mentioned above always compared proprietary with open source or partially open source implementation of DDS RTPS protocol. But in the situation when a developer have to choose only open source implementation, there has never been done any performance comparison. Latency is one of the most important factors in real time or critical applications. Therefore, I decided to investigate latency performance of OpenDDS \cite{git-openDDS} and eProsima Fast RTPS \cite{git-eProsima} implementations. 
+\quad It has been shown that DDS implementations differ in performance even though they implement the same communication standard RTPS. The research papers mentioned above always compared proprietary with open source or partially open source implementation of DDS RTPS protocol. But in the situation when a developer have to choose only open source implementation, there has never been done any performance comparison. Latency is one of the most important factors in critical real time applications. Therefore, I decided to investigate latency performance of OpenDDS \cite{git-openDDS} and eProsima Fast RTPS \cite{git-eProsima} implementations. 
 
 I chose these two implementation for their popularity and still active development. OpenDDS implements federated model meanwhile Fast RTPS uses fully distributed model. As described in previous section, each has its advantages and disadvantages. It is not possible to only look at performance tests of both implementations shown on their web pages because these tests were not done in the same testing environment \cite{eProsima-perf, openDDS-perf}. Therefore, the latency times vary and cannot be directly compared.
 
 The research questions are as follows:
 \begin{itemize}
-	\item Does federated model of OpenDDS introduces latency overhead in comparison to fully distributed model?
+	\item Does federated model of OpenDDS introduces latency overhead in comparison to fully distributed model of Fast RTPS?
 	\item How does the size of a message influence latency time in federated model vs fully distributed one?
 	\item Which of those two implementation should a developer choose if the latency performance is the most important factor?
 \end{itemize}
@@ -71,13 +71,7 @@ In order to answer these questions, I conducted and experiment that measured the
 \section{Experimental Design}
 \label{sec:exp}
 
-What are your hypotheses? How are you going to test them? What is your
-target population? What are your datasets; i.e.\ your sample of the
-target population. What are the dependent and independent variables?
-
-Guide length: 500 words.
-
-Based on the literature review and studied materials my directional hypothesis is that eProsima Fast RTPS will have better latency performance than OpenDDS implementation regarding all tested data sizes.
+\quad Based on the literature review and studied materials my directional hypothesis is that eProsima Fast RTPS will have better latency performance than OpenDDS implementation regarding all tested message sizes.
 
 I will measure the latency using loopback interface from start of send to end of read. It is the same concept as if I had two separate hosts. In this scenario host1 = host2. See Figure \ref{fig:test-topology}
 
@@ -101,9 +95,9 @@ For this experiment I used one laptop HP EliteBook 2540p with the following para
 	\item eProsima Fast RTPS (commit: bec4a979c088a1f978af3dfdea2a72ae2a78b52a)
 \end{itemize}
 
-The latency will be measured with \textit{Round-Trip time} and the divided by two. This will represent latency of a message from a publisher to a subscriber. I will discard first 1000 time measurements and then collect subsequent 10 000 measurements of \textit{Round-Trip time} divided by two. This process will repeat for every message size. The sizes of a message will be 16,32,64,128,256,512,1024,2048,4096,8192 and 16384 bytes. 
+The dependent variable of latency will be measured with \textit{Round-Trip time} and the divided by two. This will represent a latency of a message from a publisher to a subscriber. I will discard first 1000 time measurements and then collect next 10 000 measurements of \textit{Round-Trip time} divided by two. This process will repeat for every message size which is the first independent variable. The sizes of a message will be 16,32,64,128,256,512,1024,2048,4096,8192 and 16384 bytes. The second independent variable is transport type. I will collect data for both possible transport types which are "Reliable" and "Best effort". Both types uses datagram (UDP/IP) but "Reliable" type uses also RTPS ACKs/NACKs.
 
-After all data is collected, I will calculate mean, max, min and standard deviation for every message size time measurements. Then I also perform t-tests for the same message size time measurements.
+After all data is collected, I will calculate mean, max, min and standard deviation from 10 000 samples for every message size and transport type. Then I also perform T-tests that should reveal if there is any statistical difference in latency performance of those two libraries.
 
 \section{Results}
 \label{sec:results}
@@ -115,6 +109,8 @@ negative results, include them. A negative results is just as
 informative and useful as a positive one, sometimes more so.
 
 Guide length: 500 words.
+
+
 
 \section{Discussion}
 \label{sec:discuss}

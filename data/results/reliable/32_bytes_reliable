@@ -1,0 +1,22 @@
+eProsima
+	min = 158.325
+	max = 6278.56
+	stdev = 81.678
+
+openDDS
+	min = 326
+	max = 10585
+	stdev = 331.9986
+
+T-test
+
+Welch Two Sample t-test
+
+data:  eProsima and openDDS
+t = -62.861, df = 11205, p-value < 2.2e-16
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -221.6224 -208.2188
+sample estimates:
+mean of x mean of y
+ 198.4715  413.3921
