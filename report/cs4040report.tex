@@ -104,13 +104,209 @@ After all data is collected, I will calculate mean, max, min and standard deviat
 
 Present the results. A good way to organise this is via subsections
 for each hypothesis you tested. Include graphs of results
-(e.g.\ Figure~\ref{fig:data}), tests of significance, etc. If you have
+ tests of significance, etc. If you have
 negative results, include them. A negative results is just as
 informative and useful as a positive one, sometimes more so.
 
 Guide length: 500 words.
+\begin{table}[!h]
+	\centering
+	\caption{eProsima Fast RTPS Latency Best Effort Type}
+	\label{eProima-latency-table}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		Message Size (bytes)& MIN & MAX & MEAN & STDEV \\ 
+		\hline 
+		16 & 113 & 679 & 147.24 & 28.46 \\ 
+		\hline 
+		32 & 109 & 395 & 141.76 & 23.29 \\ 
+		\hline 
+		64 & 104 & 622 & 148.82 & 28.08 \\ 
+		\hline 
+		128 & 108 & 458 & 140.99 & 24.71 \\ 
+		\hline 
+		256 & 107 & 1 014 & 144.49 & 27.87 \\ 
+		\hline 
+		512 & 113 & 2 125 & 156.00 & 46.15 \\ 
+		\hline 
+		1024 & 110 & 615 & 150.62 & 29.53 \\ 
+		\hline 
+		2048 & 119 & 1 011 & 156.85 & 29.58 \\ 
+		\hline 
+		4096 & 127 & 894 & 168.33 & 29.42 \\ 
+		\hline 
+		8192 & 141 & 1 650 & 189.87 & 35.74 \\ 
+		\hline 
+		16384 & 171 & 2 250 & 221.26 & 45.88 \\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+	\centering
+	\caption{OpenDDS Latency Best Effort Type}
+	\label{openDDS-latency-table}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		Message Size (bytes)& MIN & MAX & MEAN & STDEV \\ 
+		\hline 
+		16 & 268 & 20 591 & 367.18 & 750.83 \\ 
+		\hline 
+		32 & 274 & 970 & 325.69 & 29.29 \\ 
+		\hline 
+		64 & 265 & 476 & 319.18 & 17.95 \\ 
+		\hline 
+		128 & 265 & 1 034 & 320.24 & 23.51 \\ 
+		\hline 
+		256 & 267 & 1 408 & 322.91 & 30.18 \\ 
+		\hline 
+		512 & 256 & 10 408 & 351.89 & 125.48 \\ 
+		\hline 
+		1024 & 255 & 1 028 & 348.96 & 43.92 \\ 
+		\hline 
+		2048 & 254 & 1 645 & 348.01 & 47.02 \\ 
+		\hline 
+		4096 & 264 & 973 & 352.68 & 42.37 \\ 
+		\hline 
+		8192 & 265 & 875 & 355.75 & 36.90 \\ 
+		\hline 
+		16384 & 272 & 1 629 & 348.42 & 61.37 \\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+	\centering
+	\caption{T-test eProsima vs OpenDDS Latency Best Effort Type}
+	\label{T-test-latency-table}
+	\begin{tabular}{|c|c|c|c|}
+		\hline 
+		 Message size (bytes) & t & df & p-value \\ 
+		\hline 
+		16 & -29.271 & 10 028 & \textless 2.2e-16 \\ 
+		\hline 
+		32 & -490.67 & 19 069 & \textless 2.2e-16 \\ 
+		\hline 
+		64 & -511.13 & 17 000 & \textless 2.2e-16 \\ 
+		\hline 
+		128 & -525.5 & 19 949 & \textless 2.2e-16 \\ 
+		\hline 
+		256 & -434.33 & 19 873 & \textless 2.2e-16 \\ 
+		\hline 
+		512 & -146.53 & 12 656 & \textless 2.2e-16 \\ 
+		\hline 
+		1024 & -374.77 & 17 503 & \textless 2.2e-16 \\ 
+		\hline 
+		2048 & -344.13 & 16 842 & \textless 2.2e-16 \\ 
+		\hline 
+		4096 & -357.38 & 17 821 & \textless 2.2e-16 \\ 
+		\hline 
+		8192 & -322.86 & 19 977 & \textless 2.2e-16 \\ 
+		\hline 
+		16384 & -165.94 & 18 516 & \textless 2.2e-16 \\ 
+		\hline 
+	\end{tabular} 
+\end{table}
 
 
+\begin{table}[!h]
+	\centering
+	\caption{eProsima Fast RTPS Latency Reliable Type}
+	\label{eProima-latency-table}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		Message Size (bytes)& MIN & MAX & MEAN & STDEV \\ 
+		\hline 
+		16 & 156 & 6 003 & 199.50 & 97.17 \\ 
+		\hline 
+		32 & 158 & 6 278 & 198.47 & 81.67 \\ 
+		\hline 
+		64 & 153 & 1 879 & 200.24 & 29.60 \\ 
+		\hline 
+		128 & 162 & 2 111 & 199.21 & 31.27 \\ 
+		\hline 
+		256 & 151 & 2 002 & 196.73 & 29.37 \\ 
+		\hline 
+		512 & 157 & 1 496 & 197.23 & 26.39 \\ 
+		\hline 
+		1024 & 160 & 4 892 & 205.35 & 78.35 \\ 
+		\hline 
+		2048 & 162 & 3 977 & 207.66 & 43.47 \\ 
+		\hline 
+		4096 & 174 & 796 & 213.82 & 23.38 \\ 
+		\hline 
+		8192 & 192 & 2 729 & 231.67 & 26.45 \\ 
+		\hline 
+		16384 & 220 & 1 195 & 262.98 & 28.36 \\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+	\centering
+	\caption{OpenDDS Latency Reliable Type}
+	\label{openDDS-latency-table}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		Message Size (bytes)& MIN & MAX & MEAN & STDEV \\ 
+		\hline 
+		16 & 320 & 10 696 & 406.19 & 293.54 \\ 
+		\hline 
+		32 & 326 & 10 585 & 413.39 & 331.99 \\ 
+		\hline 
+		64 & 322 & 10 611 & 413.24 & 305.65 \\ 
+		\hline 
+		128 & 322 & 12 149 & 408.68 & 326.76 \\ 
+		\hline 
+		256 & 324 & 16 763 & 405.78 & 330.79 \\ 
+		\hline 
+		512 & 306 & 5 333 & 404.52 & 189.25 \\ 
+		\hline 
+		1024 & 285 & 2 587 & 421.96 & 103.70 \\ 
+		\hline 
+		2048 & 310 & 7 052 & 413.88 & 212.52 \\ 
+		\hline 
+		4096 & 316 & 9 462 & 422.22 & 218.54 \\ 
+		\hline 
+		8192 & 329 & 6 076 & 426.91 & 192.32 \\ 
+		\hline 
+		16384 & 329 & 5 237 & 419.82 & 91.33 \\ 
+		\hline 
+	\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+	\centering
+	\caption{T-test eProsima vs OpenDDS Latency Reliable Type}
+	\label{T-test-latency-table}
+	\begin{tabular}{|c|c|c|c|}
+		\hline 
+		Message size (bytes) & t & df & p-value \\ 
+		\hline 
+		16 & -66.85 & 12 164 & \textless 2.2e-16 \\ 
+		\hline 
+		32 & -62.86 & 11 205 & \textless 2.2e-16 \\ 
+		\hline 
+		64 & -69.36 & 10 187 & \textless 2.2e-16 \\ 
+		\hline 
+		128 & -63.79 & 10 182 & \textless 2.2e-16 \\ 
+		\hline 
+		256 & -62.94 & 10 157 & \textless 2.2e-16 \\ 
+		\hline 
+		512 & -108.48 & 10 388 & \textless 2.2e-16 \\ 
+		\hline 
+		1024 & -166.65 & 18 608 & \textless 2.2e-16 \\ 
+		\hline 
+		2048 & -95.06 & 10 834 & \textless 2.2e-16 \\ 
+		\hline 
+		4096 & -94.81 & 10 228 & \textless 2.2e-16 \\ 
+		\hline 
+		8192 & -99.74 & 10 716 & \textless 2.2e-16 \\ 
+		\hline 
+		16384 & -163.98 & 11 910 & \textless 2.2e-16 \\ 
+		\hline 
+	\end{tabular} 
+\end{table}
 
 \section{Discussion}
 \label{sec:discuss}
