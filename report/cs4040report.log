@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.10.24)  28 NOV 2017 20:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.10.24)  29 NOV 2017 19:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -225,17 +225,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip56
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count102
-) (./cs4040report.aux
-
-LaTeX Warning: Label `eProima-latency-table' multiply defined.
-
-
-LaTeX Warning: Label `openDDS-latency-table' multiply defined.
-
-
-LaTeX Warning: Label `T-test-latency-table' multiply defined.
-
-)
+) (./cs4040report.aux)
 \openout1 = `cs4040report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
@@ -394,48 +384,34 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 File: openDDS-latency-tests.png Graphic file (type png)
 
 <use openDDS-latency-tests.png>
-Package pdftex.def Info: openDDS-latency-tests.png used on input line 80.
+Package pdftex.def Info: openDDS-latency-tests.png used on input line 85.
 (pdftex.def)             Requested size: 442.65375pt x 113.60529pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4]
+[4] <graph-results-comparison.png, id=31, 506.6428pt x 391.4625pt>
+File: graph-results-comparison.png Graphic file (type png)
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 186.
+<use graph-results-comparison.png>
+Package pdftex.def Info: graph-results-comparison.png used on input line 114.
+(pdftex.def)             Requested size: 442.65375pt x 342.02708pt.
+ [5 <./openDDS-latency-tests.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 198.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 186.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[5 <./openDDS-latency-tests.png (PNG copy)>]
-
-LaTeX Warning: Text page 6 contains only floats.
-
-[6]
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 198.
+ [6 <./graph-results-comparison.png (PNG copy)>]
 
 LaTeX Warning: Text page 7 contains only floats.
 
-[7] (./cs4040report.bbl
+[7] [8] (./cs4040report.bbl
+Underfull \vbox (badness 4454) has occurred while \output is active []
+
+ [9]
 Underfull \hbox (badness 1024) in paragraph at lines 10--15
 []\OT1/ptm/m/n/10.95 eProsima.  eprosima fast rtps per-for-mance.  $\OT1/cmtt/m
 /n/10.95 http : / / www . eprosima . com / index . php /
@@ -447,35 +423,32 @@ Underfull \hbox (badness 5203) in paragraph at lines 40--44
 0.95 http : / / portals . omg . org / dds /
  []
 
-[8]
+
 Underfull \hbox (badness 1968) in paragraph at lines 84--88
 []\OT1/ptm/m/n/10.95 Wikipedia.  Fed-er-ated ar-chi-tec-ture.  $\OT1/cmtt/m/n/1
 0.95 https : / / en . wikipedia . org / wiki / Federated _
  []
 
-) [9] (./cs4040report.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+[10]) [11] (./cs4040report.aux) ) 
 Here is how much of TeX's memory you used:
- 4362 strings out of 494946
- 62954 string characters out of 6180980
- 145397 words of memory out of 5000000
- 7562 multiletter control sequences out of 15000+600000
+ 4371 strings out of 494946
+ 63253 string characters out of 6180980
+ 136390 words of memory out of 5000000
+ 7570 multiletter control sequences out of 15000+600000
  44468 words of font info for 92 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 43i,11n,45p,1725b,365s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
-s/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on cs4040report.pdf (10 pages, 253888 bytes).
+ 43i,10n,45p,1725b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips
+/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/font
+s/type1/urw/times/utmri8a.pfb>
+Output written on cs4040report.pdf (12 pages, 298393 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
+ 78 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -71,7 +71,12 @@ In order to answer these questions, I conducted and experiment that measured the
 \section{Experimental Design}
 \label{sec:exp}
 
-\quad Based on the literature review and studied materials my directional hypothesis is that eProsima Fast RTPS will have better latency performance than OpenDDS implementation regarding all tested message sizes.
+\quad These are my hypotheses:
+\begin{itemize}
+	\item H0: There will be no difference in latency performance between eProsima Fast RTPS and OpenDDS implementations, regarding all tested message sizes.
+	\item H1: There will be difference in latency performance between eProsima Fast RTPS and OpenDDS implementations, regarding all tested message sizes.
+	\item H2: There will be difference in latency performance between eProsima Fast RTPS and OpenDDS implementations, but only in some tested message sizes.
+\end{itemize}
 
 I will measure the latency using loopback interface from start of send to end of read. It is the same concept as if I had two separate hosts. In this scenario host1 = host2. See Figure \ref{fig:test-topology}
 
@@ -88,31 +93,34 @@ For this experiment I used one laptop HP EliteBook 2540p with the following para
 	\item CPU: Intel(R) Core(TM) i5 CPU M 540 locked at 1.2GHz frequency
 	\item Memory: SAMSUNG 8GB 2x4GB PC3-10600 DDR3 1333MHZ
 	\item Operating System: Fedora 27 64-bit
-	\item Swappiness: 0
+	\item VM Swappiness: 0
 	\item Used compiler: gcc version 7.2.1 20170915 (Red Hat 7.2.1-2) (GCC)
 	\item CMake: version 3.9.6
 	\item OpenDDS version 3.12 (commit: 3057ef9dbb032bc51895f70e5c350af4b10093fa) 
 	\item eProsima Fast RTPS (commit: bec4a979c088a1f978af3dfdea2a72ae2a78b52a)
 \end{itemize}
 
-The dependent variable of latency will be measured with \textit{Round-Trip time} and the divided by two. This will represent a latency of a message from a publisher to a subscriber. I will discard first 1000 time measurements and then collect next 10 000 measurements of \textit{Round-Trip time} divided by two. This process will repeat for every message size which is the first independent variable. The sizes of a message will be 16,32,64,128,256,512,1024,2048,4096,8192 and 16384 bytes. The second independent variable is transport type. I will collect data for both possible transport types which are "Reliable" and "Best effort". Both types uses datagram (UDP/IP) but "Reliable" type uses also RTPS ACKs/NACKs.
+The dependent variable of latency will be measured with \textit{Round-Trip time} and the divided by two. This will represent a latency of a message from a publisher to a subscriber. I will discard first 1000 samples and then collect next 10 000 measurements of \textit{Round-Trip time} divided by two. This process will repeat for every message size which is the first independent variable. The sizes of a message will be 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192 and 16384 bytes. The second independent variable is transport type. I will collect data for both possible transport types which are "Reliable" and "Best effort". Both types use datagram (UDP/IP) but "Reliable" type uses also RTPS ACKs/NACKs.
 
 After all data is collected, I will calculate mean, max, min and standard deviation from 10 000 samples for every message size and transport type. Then I also perform T-tests that should reveal if there is any statistical difference in latency performance of those two libraries.
 
 \section{Results}
 \label{sec:results}
 
-Present the results. A good way to organise this is via subsections
-for each hypothesis you tested. Include graphs of results
- tests of significance, etc. If you have
-negative results, include them. A negative results is just as
-informative and useful as a positive one, sometimes more so.
+\quad Figure \ref{fig:graph-results-comparison} show the mean latency of each message size calculated from 10 000 samples. It is possible to see the latency difference for different types of transport. The latency increase with "Reliable" transport type for Fast RTPS was in average by 50 microseconds. For OpenDDS the latency increase with "Reliable" transport type was in average by 70 microseconds. The differences in latency performance between those two implementations are enormous.
 
-Guide length: 500 words.
-\begin{table}[!h]
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\textwidth]{graph-results-comparison}
+	\caption{\label{fig:graph-results-comparison}OpenDDS vs Fast RTPS Mean Latency of 10 000 samples}
+\end{figure}
+
+The Table \ref{eProima-latency-table-best} shows MIN, MAX, MEAN and standard deviation of collected data samples for eProsima Fast RTPS implementation with "Best effort" transport type. We can see on standard deviation values of the measured latency time is very stable. It also slowly increases with bigger message size.
+
+\begin{table}[!ht]
 	\centering
 	\caption{eProsima Fast RTPS Latency Best Effort Type}
-	\label{eProima-latency-table}
+	\label{eProima-latency-table-best}
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline 
 		Message Size (bytes)& MIN & MAX & MEAN & STDEV \\ 
@@ -142,10 +150,12 @@ Guide length: 500 words.
 	\end{tabular}
 \end{table}
 
-\begin{table}[!h]
+The Table \ref{openDDS-latency-table-best} shows the results for OpenDDS implementation. It is evident that the latency values are higher. What is more interesting is that the measured time do not significantly increase even bigger message sizes. It behaves more linear than in the case of Fast RTPS. It is also interesting that the latency for 16 bytes messages have large standard deviation in comparison to all the others.
+
+\begin{table}[!ht]
 	\centering
 	\caption{OpenDDS Latency Best Effort Type}
-	\label{openDDS-latency-table}
+	\label{openDDS-latency-table-best}
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline 
 		Message Size (bytes)& MIN & MAX & MEAN & STDEV \\ 
@@ -175,10 +185,12 @@ Guide length: 500 words.
 	\end{tabular}
 \end{table}
 
-\begin{table}[!h]
+The Table \ref{T-test-latency-table-best} shows T-test results for every message size for "Best effort" transport type. Based on this we can definitely say that the acquired results are statistically significant. The reason for this is that the p-value is always less than 2.2e-16.
+
+\begin{table}[!ht]
 	\centering
 	\caption{T-test eProsima vs OpenDDS Latency Best Effort Type}
-	\label{T-test-latency-table}
+	\label{T-test-latency-table-best}
 	\begin{tabular}{|c|c|c|c|}
 		\hline 
 		 Message size (bytes) & t & df & p-value \\ 
@@ -208,11 +220,12 @@ Guide length: 500 words.
 	\end{tabular} 
 \end{table}
 
+The table \ref{eProima-latency-table-reliable} shows significant increase in latency if "Reliable" transport type is used. Also it is possible to see that the behaviour of latency does not change in comparison to "Best effort" transport type.
 
-\begin{table}[!h]
+\begin{table}[!ht]
 	\centering
 	\caption{eProsima Fast RTPS Latency Reliable Type}
-	\label{eProima-latency-table}
+	\label{eProima-latency-table-reliable}
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline 
 		Message Size (bytes)& MIN & MAX & MEAN & STDEV \\ 
@@ -242,10 +255,12 @@ Guide length: 500 words.
 	\end{tabular}
 \end{table}
 
-\begin{table}[!h]
+In the table \ref{openDDS-latency-table-reliable} are shown the results of latency measurements for OpenDDS with "Reiable" transport type. These results show increase in latency in comparison to previous transport type. It is also possible to see that standard deviation has significantly increased.
+
+\begin{table}[!ht]
 	\centering
 	\caption{OpenDDS Latency Reliable Type}
-	\label{openDDS-latency-table}
+	\label{openDDS-latency-table-reliable}
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline 
 		Message Size (bytes)& MIN & MAX & MEAN & STDEV \\ 
@@ -275,10 +290,12 @@ Guide length: 500 words.
 	\end{tabular}
 \end{table}
 
-\begin{table}[!h]
+The table \ref{T-test-latency-table-reliable} presents T-test results for every message size for "Reliable" transport type. Based on this we can definitely say that the acquired results are statistically significant. The reason for this is that the p-value is always less than 2.2e-16.
+
+\begin{table}[!ht]
 	\centering
-	\caption{T-test eProsima vs OpenDDS Latency Reliable Type}
-	\label{T-test-latency-table}
+	\caption{T-test eProsima Fast RTPS vs OpenDDS Latency Reliable Type}
+	\label{T-test-latency-table-reliable}
 	\begin{tabular}{|c|c|c|c|}
 		\hline 
 		Message size (bytes) & t & df & p-value \\ 
@@ -308,23 +325,22 @@ Guide length: 500 words.
 	\end{tabular} 
 \end{table}
 
+Based on the presented results I have to definately reject the null hypothesis which says that there will be no difference in latency performance between eProsima Fast RTPS and OpenDDS implementations, regarding all tested message sizes. I also have to reject alternative hypothesis number 2 which says There will be difference in latency performance between eProsima Fast RTPS and OpenDDS implementations, but only in some tested message sizes.
+
+On the other hand, the alternative hypothesis number 1 has been confirmed. It says that there will be difference in latency performance between eProsima Fast RTPS and OpenDDS implementations, regarding all tested message sizes. It is possible to claim this because all T-tests show p-value less than 2.2e-16.
+
+
 \section{Discussion}
 \label{sec:discuss}
 
-What do the results say? What have you learned from the
-experiments? Have you identified a correlation between variables, or
-causation? What are the limitations of what you've done? What further
-experiments might be of benefit?
+\quad The presented results confirm the hypothesis that there is a difference in latency performance between these two implementations. Based on the presented results I can say that eProsima Fast RTPS is 2 types faster than OpenDDS in terms of latency, regards to all tested message sizes. However, this experiment was performed on a single machine and it would be interesting to do the same experiment on a network with two different physical hosts and compare the results with my experiment. Also this paper was not focused on behaviour of latency when the network and devices are approaching saturation point. That means when we would reach the limits of chosen Ethernet network. Such experiment could lead to a different results. 
 
-Guide length: 400 words.
+Latency performance is only one of the factor which influences the final decision of a developer which implementation to choose. I a scope of this paper it was the only comparison I have done. It would be interesting to compare these two implementation in terms of throughput, CPU and Memory load and what is the maximum number of messages per second they can deliver. 
 
 \section{Conclusion}
 \label{sec:conc}
 
-What have you done and why? What have you shown through your
-experiments?
-
-Guide length: 100 words.
+\quad In this paper I performed an empirical evaluation of latency performance of two popular open source implementations of RTPS DDS protocol. Those two libraries were eProsima Fast RTPS and OpenDDS. The presented results clearly show that eProsima Fast RTPS is two times faster in terms of latency performance than OpenDDS. This was confirmed with both, "Best effort" and "Reliable", transport types.
 
 \bibliography{myrefs}
 
